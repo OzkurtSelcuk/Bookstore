@@ -213,11 +213,26 @@ const App = () => {
       {isCartOpen && <CartPanel cart={cart} onRemove={handleRemoveFromCart} onClose={() => setIsCartOpen(false)} onCheckout={handleCheckout} />}
 
       {userRole === "admin" && (
-        <button onClick={() => api.adminReset().then(fetchData)}
-          style={{ position: 'fixed', bottom: '20px', left: '50%', transform: 'translateX(-50%)', backgroundColor: '#ef4444', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer', zIndex: 50 }}>
-          Sıfırla (Alt+R)
-        </button>
-      )}
+    <button 
+        onClick={() => api.adminReset().then(fetchData)}
+        style={{ 
+            position: 'fixed', 
+            bottom: '20px', 
+            left: '50%', 
+            transform: 'translateX(-50%)',
+            backgroundColor: '#ef4444', // Kırmızı tonu
+            color: 'white',
+            padding: '10px 20px',
+            borderRadius: '6px',
+            border: 'none',
+            cursor: 'pointer',
+            fontWeight: '600',
+            zIndex: 1000 // Diğer elemanların üstünde kalması için
+        }}
+    >
+        Sistemi Sıfırla
+    </button>
+)}
     </div>
   );
 };
